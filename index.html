@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">         
+  <meta name="author" content="thesonxius"> 
+  <link rel="icon" href="box.png" type="image/png" />                                 
+  
+  <title>sonxiusbox</title>
+  <style>
+    body {
+      background-image: url('backrooms.png'); 
+      background-size: cover;       
+      background-position: center;  
+      background-repeat: no-repeat; 
+      background-attachment: fixed; 
+    }
+    
+        @media (max-width: 768px) {
+      body {
+        background-attachment: scroll;
+      }
+    }
+        
+    .thesonxius {
+      width: 500px;
+      height: auto;
+      transition: transform 0.15s ease;
+      cursor: pointer;
+      user-select: none;         /* Prevent selection */
+      -webkit-user-drag: none;   /* Prevent drag */
+      -moz-user-select: none;
+      -ms-user-select: none;
+      z-index: 999;
+      position: absolute;
+      left: 25%;
+      top: 45%;
+    }
+    
+    .squished {
+      transform: scaleY(0.8);
+      user-select: none;         /* Prevent selection */
+      -webkit-user-drag: none;   /* Prevent drag */
+      -moz-user-select: none;
+      -ms-user-select: none;
+      z-index: 999;
+    }
+  
+  
+    #container {
+      padding: 10px;
+      height: auto;
+      width: 160px;
+      background-color: rgb(250, 246, 215);
+      border-radius: 10px;
+      margin: 2px;
+      margin-bottom: 16px;
+      filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.3));
+      z-index: 1;
+    }
+
+    #container li {
+      margin-bottom: 10px; /* space between each item */
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to My Site :)</h1>
+  
+  <div id="container">
+  <ul>
+    <li><a href="Clicker test.html">clicker test</a></li>
+    <li><a href="test.html">test</a></li>
+    <li><a href="test2.html">test2</a></li>
+    <li><a href="test3.html">test3</a></li>
+    <li><a href="game test.html">game test</a></li>
+    <li><a href="room test.html">room test</a></li>
+    <li><a href="worm test.html">worm test</a></li>
+    <li><a href="worm test 2.html">worm test 2</a></li>
+    <li><a href="worm test 3.html">worm test 3</a></li>
+    <li><a href="punch test.html">punch test</a></li>
+    <li><a href="giraffi game.html">punch test 2</a></li>
+  </ul>
+  </div>
+  
+
+  <img src="box3.png" alt="sonxius" class="thesonxius" id="squishy" draggable="false">
+  
+
+  <script>
+    const img = document.getElementById('squishy');
+
+    // Add "squished" class when mouse is pressed
+    img.addEventListener('mousedown', () => {
+      img.classList.add('squished');
+    });
+
+    // Remove it when mouse is released or leaves the image
+    img.addEventListener('mouseup', () => {
+      img.classList.remove('squished');
+    });
+
+    img.addEventListener('mouseleave', () => {
+      img.classList.remove('squished');
+    });
+
+    // Touch support for mobile
+    img.addEventListener('touchstart', () => {
+      img.classList.add('squished');
+    });
+
+    img.addEventListener('touchend', () => {
+      img.classList.remove('squished');
+    });
+  </script>
+</body>
+</html>
