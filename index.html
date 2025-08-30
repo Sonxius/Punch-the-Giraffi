@@ -112,11 +112,11 @@
       max-height: 300px;
       overflow-y: auto;
       padding-right: 6px;
-      scrollbar-width: thin;              /* Firefox */
-      scrollbar-color: #888 #e0e0e0;      /* Firefox */
+      scrollbar-width: thin;              
+      scrollbar-color: #888 #e0e0e0;      
     }
 
-    /* Chrome, Edge, Safari */
+    
     #shopItems::-webkit-scrollbar {
       width: 10px;
     }
@@ -129,7 +129,7 @@
     #shopItems::-webkit-scrollbar-thumb {
       background: #888;
       border-radius: 8px;
-      border: 2px solid #e0e0e0; /* Makes thumb smaller and adds padding */
+      border: 2px solid #e0e0e0; 
     }
 
     #shopItems::-webkit-scrollbar-thumb:hover {
@@ -139,7 +139,7 @@
     .giraffi-wrapper {
       display: inline-block;
       filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.4));
-      transition: transform 0.3s ease; /* for hover scale */
+      transition: transform 0.3s ease; 
     }
 
     .giraffi-wrapper:hover {
@@ -214,8 +214,8 @@
     
     #comboMultiplierPopup {
       position: fixed;
-      top: 922px;          /* adjust as needed */
-      right: 640px;        /* adjust as needed */
+      top: 922px;         
+      right: 640px;       
       font-size: 2em;
       color: red !important;
       font-weight: bold;
@@ -225,8 +225,7 @@
       z-index: 2000;
       pointer-events: none;
     }
-
-    /* Bottom-right buttons container */
+    
     #bottomButtons {
       position: fixed;
       bottom: 12px;
@@ -343,7 +342,6 @@
      user-select: none;
     }
 
-    /* Shop styles */
     #shop {
       position: fixed;
       top: 50%;
@@ -420,7 +418,6 @@
       white-space: nowrap;
     }
 
-    /* Buy button inside shop items */
     #shop .item button.buyButton {
       background-color: green;
       color: white;
@@ -436,7 +433,6 @@
       background-color: darkgreen;
     }
 
-    /* Dark mode text overrides */
     body.dark-mode {
       color: white;
     }
@@ -495,9 +491,9 @@
     }
 
     #comboBarContainer {
-      position: relative; /* changed from fixed */
-      top: -4px; /* adjust as needed to sit just under the giraffe */
-      margin-top: -25px;  /* creates space between Giraffi and the combo bar */
+      position: relative; 
+      top: -4px; 
+      margin-top: -25px;  
       width: 400px;
       height: 26px;
       background-color: transparent;
@@ -515,7 +511,7 @@
     }
 
     .comboBarWrapper {
-      position: relative;  /* This allows #comboBarRed to overlay inside */
+      position: relative;  
       width: 100%;
       height: 100%;
     }
@@ -566,7 +562,6 @@
     cursor: auto !important;
   }
   
-  /* Pop-up glove animation container */
     #buyGloveAnimation {
       position: fixed;
       top: 50%;
@@ -580,7 +575,6 @@
       opacity: 0;
     }
 
-    /* The radiant glow effect */
     #buyGloveAnimation img {
       animation: glowPop 1s ease-out forwards;
       filter: drop-shadow(0 0 20px gold) drop-shadow(0 0 40px yellow);
@@ -595,7 +589,6 @@
       100% { transform: scale(1) rotate(0deg); opacity: 1; }
     }
 
-    /* The message text */
     #buyGloveMessage {
       margin-top: 10px;
       font-size: 1.5em;
@@ -629,7 +622,6 @@
       display: flex;      
   }
     
-    /* Light mode default */
     #infoModal .infoModalContent {
       background: white;
       padding: 20px;
@@ -643,14 +635,13 @@
       cursor: default;
     }
 
-    /* Dark mode styles (matches your JS toggle) */
     body.dark-mode #infoModal .infoModalContent {
       background: #1e1e1e;
       color: #f5f5f5;
       box-shadow: 0 0 20px rgba(183, 0, 255, 0.555);
       border: 2px solid rgb(212, 0, 255);
     }
-    /* Close button inherits text color in both modes */
+
     #infoModal #closeInfoModal {
       position: absolute;
       top: 5px; right: 10px;
@@ -688,10 +679,10 @@
       top: 0;
       left: 0;
       width: 100px;
-      z-index: 0;   /* sits above pages with z-index: 0 */
+      z-index: 0;  
       pointer-events: none;
     }
-    /* individual pages */
+
     #page1 { z-index: 0; top: 0; left: 0; }
     #page2 { z-index: 0; top: 0; left: 0; transform: translateX(100%); }
     #page3 { 
@@ -710,7 +701,7 @@
       z-index: 12;
       top: 0;    
       left: 0; 
-      transform: translateX(-100%); /* hidden initially */
+      transform: translateX(-100%); 
       position: absolute;
       background: url("Textures/office.png") center/cover no-repeat;
       height: 100vh;
@@ -719,12 +710,12 @@
       cursor: none;
     }
 
-    /* Elevator (right of cellar) */
+
     #page5 { 
       z-index: 12;
       top: 0;    
       left: 0; 
-      transform: translateX(100%); /* hidden initially */
+      transform: translateX(100%);
       position: absolute;
       background: url("Textures/elevatorRoom.png") center/cover no-repeat;
       height: 100vh;
@@ -733,7 +724,6 @@
       cursor: none;
     }
 
-    /* Dark blue tint layer (always present) */
     #page3::before {
       content: "";
       position: absolute;
@@ -743,7 +733,6 @@
       pointer-events: none;
     }
 
-    /* Flashlight removes the tint locally */
     #page3.flashlight-active::before {
       -webkit-mask-image: radial-gradient(
         circle 500px at var(--x, 50%) var(--y, 50%),
@@ -764,7 +753,7 @@
       mask-composite: exclude;
     }
 
-      /* Start button */
+
     .flashlight-btn {
       border: none;
       background: none;
@@ -798,7 +787,6 @@
         user-select: none;
       }
 
-      /* Game area */
       #whackGame {
         display: none;
         position: relative;
@@ -807,7 +795,6 @@
         cursor: default;   
       }
 
-      /* HUD */
       .hud {
         position: absolute;
         top: 10px;
@@ -827,14 +814,12 @@
         border-radius: 8px;
       }
 
-      /* Targets */
       .target {
         position: absolute;
         cursor: pointer;
         user-select: none;
       }
 
-      /* End screen */
       .end-screen {
         position: absolute;
         top: 0;
@@ -863,7 +848,7 @@
         cursor: pointer;
     }
 
-    /* Buttons */
+
     .button {
       border: none;
       background: none;
@@ -908,7 +893,6 @@
     #button-left3.hidden { opacity: 0; pointer-events: none;}  
     #button-right3.hidden { opacity: 0; pointer-events: none;; } 
 
-    /* shift animations */
     #page1.shift-left { transform: translateX(-100%); }
     #page2.shift-left { transform: translateX(0); }
 
@@ -954,7 +938,6 @@
      user-select: none;
     } 
 
-    /* Game overlay */
     #appleGame {
         position: fixed;
         top: 0;
@@ -1002,7 +985,6 @@
     #score { top: 190px; }
     #timeLeft { top: 250px; }
 
-    /* End screen */
     #endScreen {
         position: absolute;
         top: 0;
@@ -1017,7 +999,7 @@
         color: white;
         font-size: 28px;
         text-align: center;
-        cursor: default; /* show cursor again */
+        cursor: default; 
     }
 
     #endScreen button {
@@ -1075,8 +1057,8 @@
     }
 
     #feedWindow {
-        background-color: #fff;        /* light mode background */
-        border: 2px solid #000;        /* black border */
+        background-color: #fff;       
+        border: 2px solid #000;        
         border-radius: 12px;
         padding: 20px;
         width: 300px;
@@ -1095,30 +1077,27 @@
       border: 2px solid #fff;
   }
    
-    /* General feed window buttons */
     #feedWindow button {
-        background-color: #ffcc33;       /* bright, game-like color */
-        border: 2px solid #ffaa00;       /* border that pops */
-        border-radius: 8px;              /* rounded corners */
-        padding: 8px 16px;               /* spacing inside the button */
-        font-size: 16px;                 /* text size */
+        background-color: #ffcc33;       
+        border: 2px solid #ffaa00;       
+        border-radius: 8px;              
+        padding: 8px 16px;               
+        font-size: 16px;                
         font-weight: bold;
-        color: #000;                     /* text color */
-        cursor: pointer;                 /* show pointer cursor */
-        transition: transform 0.1s ease, background-color 0.2s ease; /* smooth hover */
+        color: #000;                    
+        cursor: pointer;                 
+        transition: transform 0.1s ease, background-color 0.2s ease; 
         font-family: "Comic Sans MS", "Comic Sans";
     }
 
-    /* Hover effect */
     #feedWindow button:hover {
         background-color: #ffaa00;       
         transform: scale(1.1); 
         font-weight: bold;          
     }
 
-    /* Active / click effect */
     #feedWindow button:active {
-        transform: scale(0.95);          /* shrink slightly on click */
+        transform: scale(0.95);         
     }
 
     #officeGameButton {
@@ -1206,9 +1185,9 @@
       padding: 8px;
     }
 
-  #cloudUpload, #trashBin { position: absolute; width: 120px; height: 130px; cursor: default; z-index: 5;}
-  #cloudUpload { bottom: 10px; left: 50px; }
-  #trashBin { bottom: 10px; right: 50px; }
+    #cloudUpload, #trashBin { position: absolute; width: 120px; height: 130px; cursor: default; z-index: 5;}
+    #cloudUpload { bottom: 10px; left: 50px; }
+    #trashBin { bottom: 10px; right: 50px; }
   </style>
 </head>
 <body>
@@ -1218,7 +1197,7 @@
     alt="Player"
   />
 
-  <!-- Game container -->
+<!-- Game container -->
 <div id="appleGame">
   <div id="score">Score: 0</div>
   <div id="timeLeft">Time: 60</div>
@@ -1253,7 +1232,7 @@
   </div>
   
   
-  <!-- 🍎 Feeding Window (hidden by default) -->
+  <!-- 🍎 Feeding Window -->
   <div id="feedWindow">
 
 
@@ -1345,6 +1324,7 @@
     <!-- Computer Click Sound -->
     <audio id="compClick" src="Sounds/compClick.mp3" preload="auto"></audio>
 
+    <!-- File Sounds -->
     <audio id="successSound" src="Sounds/success.mp3"></audio>
     <audio id="failSound" src="Sounds/fail.mp3"></audio>
 
@@ -1407,7 +1387,6 @@
         <div id="whackTime">Time: 60</div>
         <button id="quitBtn" class="quit">Quit</button>
       </div>
-      <!-- Targets will be placed here -->
     </div>
 
     <!-- End Screen -->
@@ -1441,11 +1420,11 @@
 
     <!-- Invisible spawn area -->
     <div id="officeSpawnArea">
-          <!-- Cloud Upload Target -->
-    <img id="cloudUpload" src="Textures/cloudUpload.png" alt="Cloud Upload" draggable="false">
-
-    <!-- Trash Bin Target -->
-    <img id="trashBin" src="Textures/trashBin.png" alt="Trash Bin" draggable="false"> 
+    <!-- Upload Target -->
+      <img id="cloudUpload" src="Textures/cloudUpload.png" alt="Cloud Upload" draggable="false">
+  
+      <!-- Trash Bin Target -->
+      <img id="trashBin" src="Textures/trashBin.png" alt="Trash Bin" draggable="false"> 
     </div>
   </div>
 
@@ -1464,10 +1443,9 @@
         <img src="Textures/left.png" draggable="false" alt="back" class="light-img" />
         <img src="Textures/left-dark.png" draggable="false" alt="back" class="dark-img" />
     </button>
-    <!-- Custom background content for elevator can go here -->
   </div>
   
-  <!-- Sun / Moon moving on a curve -->
+  <!-- Sun / Moon  -->
       <img id="skyOrb" 
         class="hover-target"
         src="Textures/sun1.png"  
@@ -1495,7 +1473,7 @@
     let punchTimes = [];
     let fastPunchTimer = null;
     let isDead = false;
-    let ownedGloveIds = new Set([1]); // Own Basic Gloves by default
+    let ownedGloveIds = new Set([1]); 
     let comboBlackValue = 0;  
     let comboRedValue = 0;
     let comboDecayInterval = null;
@@ -1507,7 +1485,7 @@
     let giraffiKills = 0;
     let wamboScale = 1;
     let feedActive = false;
-    let feedTimeLeft = 0; // seconds
+    let feedTimeLeft = 0; 
     let feedInterval;
     let applesFeeding = 0;  
 
@@ -1557,7 +1535,7 @@
         id: 99,
         name: "Bee Glove",
         cost: 0,
-        punchesPerClick: 0, // dynamically set to best glove owned
+        punchesPerClick: 0, 
         img: "Textures/bee_glove.png",
         special: "bee"
       },
@@ -1574,7 +1552,7 @@
 
     let currentGloveIndex = 0;
     let punchesPerClick = gloves[currentGloveIndex].punchesPerClick;
-    updateComboBar(); // <- Add this here
+    updateComboBar(); 
 
     document.addEventListener("mousemove", (e) => {
       player.style.left = e.clientX + "px";
@@ -1592,31 +1570,31 @@
     const page4 = document.getElementById("page4"); // Office
     const page5 = document.getElementById("page5"); // Elevator
 
-    // page1 → page2 (horizontal)
+    // page1 → page2 
     document.getElementById("button-next").onclick = () => {
       page1.classList.add("shift-left");
       page2.classList.add("shift-left");
     }
 
-    // page2 → page1 (horizontal)
+    // page2 → page1 
     document.getElementById("button-back").onclick = () => {
       page1.classList.remove("shift-left");
       page2.classList.remove("shift-left");
     }
 
-    // page1 → page3 (vertical)
+    // page1 → page3 
     document.getElementById("button-next2").onclick = () => {
       page1.classList.add("shift-up");
       page3.classList.add("shift-up");
     }
 
-    // page3 → page1 (vertical)
+    // page3 → page1 
     document.getElementById("button-back3").onclick = () => {
       page1.classList.remove("shift-up");
       page3.classList.remove("shift-up");
     }
 
-    // page3 → page4 (left)
+    // page3 → page4 
     document.getElementById("button-left3").onclick = () => {
       page3.classList.add("shift-right");
       page4.classList.add("shift-right");
@@ -1628,7 +1606,7 @@
       page4.classList.remove("shift-right");
     }
 
-    // page3 → page5 (right)
+    // page3 → page5 
     document.getElementById("button-right3").onclick = () => {
       page3.classList.add("shift-left");
       page5.classList.add("shift-left");
@@ -1640,7 +1618,6 @@
       page5.classList.remove("shift-left");
     }
 
-    // Get all buttons
     const buttons = document.querySelectorAll(".button");
 
     buttons.forEach(button => {
@@ -1794,11 +1771,11 @@
       
           animMsg.textContent = `Equipped ${glove.name}`; 
           if (darkMode) {
-              // Dark mode: white text with black outline
+              // Dark mode
               animMsg.style.color = "white";
               animMsg.style.textShadow = "1px 1px 2px black, -1px -1px 2px black";
           } else {
-              // Light mode: black text with white outline
+              // Light mode
               animMsg.style.color = "black";
               animMsg.style.textShadow = "1px 1px 2px white, -1px -1px 2px white";
           }
@@ -1811,7 +1788,7 @@
       animImg.style.animation = "none";
 
       // Restart animations
-      void animContainer.offsetWidth; // reflow hack
+      void animContainer.offsetWidth; 
       animImg.style.animation = "glowPop 0.8s ease-out forwards";
       animMsg.style.animation = "fadeInUp 0.8s ease-out forwards";
 
@@ -1848,10 +1825,10 @@
         input.value = Math.max(1, parseInt(input.value) - 1);
     });
 
-    // Select all buttons inside the feed window
+
     const feedButtons = document.querySelectorAll("#feedWindow button");
 
-    // Add hover and click sounds
+    // hover and click sounds
     feedButtons.forEach(button => {
       button.addEventListener("mouseenter", () => {
         playButtonHoverSound();
@@ -1871,23 +1848,19 @@
         if (amount > 0 && amount <= playerTotalApples) {
             playerTotalApples -= amount;
             applesFeeding += amount;
-            feedTimeLeft += amount * 5; // 5s per apple
+            feedTimeLeft += amount * 5; 
 
-            // Start effect if not already active
             if (!feedActive) {
                 feedActive = true;
                 startFeedEffect();
             }
 
-            // Update UI
             updateDisplay();
             document.getElementById("applesAvailable").textContent = abbreviateNumber(playerTotalApples);
         }
     });
 
-    // =======================
-    // FEEDING EFFECT
-    // =======================
+    // Feeding Effect
     function startFeedEffect() {
         document.getElementById("feedEffectTimer").style.display = "block";
         document.getElementById("feedTimeLeft").textContent = feedTimeLeft;
@@ -1906,37 +1879,32 @@
         }, 1000);
     }
 
-    // Reference feed window + apple input
+
     const feedWindow = document.getElementById("feedWindow");
     const appleInput = document.getElementById("appleInput");
 
-    // Cursor hide when inside feed window
     feedWindow.addEventListener("mouseenter", () => {
-        player.style.display = "none"; // hide the custom player cursor
+        player.style.display = "none"; 
         feedWindow.style.cursor = "default";
     });
     feedWindow.addEventListener("mouseleave", () => {
-        player.style.display = ""; // restore the custom cursor
+        player.style.display = ""; 
         feedWindow.style.cursor = "none";
     });
 
-    // Close function (reset input too)
     function closeFeedWindow() {
         feedWindow.style.display = "none";
         appleInput.value = 1; // reset to 1 apple
     }
     
     
-    // =======================
-    // COMBO STEP HELPER
-    // =======================
     function getComboStep() {
         return feedActive ? 7 : 10;
     }
     
     // --- Apple Tree --- //
 
-    const tree = document.getElementById('appletree'); // use dark version if needed
+    const tree = document.getElementById('appletree'); 
     const treeDark = document.getElementById('appletree-dark');
     const appleSpawnArea = document.getElementById('applespawn');
 
@@ -1946,7 +1914,6 @@
         const currentApples = document.querySelectorAll('.apple-on-tree').length;
 
         if (currentApples >= 15) {
-            // Too many apples, wait until some are collected
             return;
         }
         
@@ -1970,7 +1937,7 @@
             playButtonClickSound()
             apple.remove();
             updateDisplay();
-            const rect = apple.getBoundingClientRect(); // <-- add this
+            const rect = apple.getBoundingClientRect(); 
             showPopup(
               `+1 <img src="Textures/appleico.png" alt="Apple" draggable="false" style="width:40px;height:40px;vertical-align:middle;">`,
               e.pageX,
@@ -1980,12 +1947,12 @@
         });
         apple.addEventListener('mouseenter', () => {
             playButtonHoverSound();
-            apple.style.transform = 'scale(1.2)'; // grow 20%
+            apple.style.transform = 'scale(1.2)'; 
             player.classList.add("hide-cursor-player");
         });
 
         apple.addEventListener('mouseleave', () => {
-            apple.style.transform = 'scale(1)'; // back to normal
+            apple.style.transform = 'scale(1)'; 
             player.classList.remove("hide-cursor-player");
         });
         page2.appendChild(apple);
@@ -1993,7 +1960,6 @@
         
     }
 
-        // Spawn an apple every 20 seconds
         setInterval(spawnApple, 20000);
     
   
@@ -2009,9 +1975,9 @@
 
 
     // --- Music ---//
-    const bgMusic = new Audio("Sounds/applebackground-music.mp3"); // replace with your music file
-    bgMusic.loop = true; // keep playing in loop
-    bgMusic.volume = 0.8; // optional, adjust volume
+    const bgMusic = new Audio("Sounds/applebackground-music.mp3"); 
+    bgMusic.loop = true; 
+    bgMusic.volume = 0.8; 
 
     let keys = {};
     let items = [];
@@ -2022,8 +1988,8 @@
     let timeLeft = 60;
 
 
-    const GAME_DURATION = 60; // seconds
-    const COOLDOWN_DURATION = 180; // seconds
+    const GAME_DURATION = 60; 
+    const COOLDOWN_DURATION = 180; 
 
     // --- Add "Press A,D to Move" text ---
     const moveText = document.createElement("div");
@@ -2048,7 +2014,7 @@
         }
     }
     
-    // --- Update key handling ---
+
     document.addEventListener("keydown", (e) => {
         const key = e.key.toLowerCase();
         keys[key] = true;
@@ -2069,7 +2035,7 @@
         // Ensure catcher has position and initial left
         catcher.style.position = "absolute";
         catcher.style.left = (appleGame.clientWidth / 2 - catcher.offsetWidth / 2) + "px";
-        catcher.style.bottom = "10px"; // adjust vertical position
+        catcher.style.bottom = "10px"; 
 
         score = 0;
         timeLeft = GAME_DURATION;
@@ -2172,7 +2138,6 @@
         item.src = "Textures/apple.png";
         item.className = "falling-item";
 
-        // Keep apples away from edges (min 60px, max screen-60px)
         const margin = 60;
         const maxLeft = window.innerWidth - 50 - margin;
         const posX = Math.random() * (maxLeft - margin) + margin;
@@ -2248,9 +2213,9 @@
     let whackCooldownActive = false;
   
     // --- Music ---//
-    const wbgMusic = new Audio("Sounds/cellarbackground-music.mp3"); // replace with your music file
-    wbgMusic.loop = true; // keep playing in loop
-    wbgMusic.volume = 0.8; // optional, adjust volume
+    const wbgMusic = new Audio("Sounds/cellarbackground-music.mp3"); 
+    wbgMusic.loop = true; 
+    wbgMusic.volume = 0.8; 
 
     const TARGETS = [
       {src: "Textures/peek1.png", x: 99, y: 310, size: 300},
@@ -2275,7 +2240,7 @@
       page3.classList.add("flashlight-active");
       player.classList.add("hidden");
 
-      buttonBack3.classList.add("hidden"); // hide up button
+      buttonBack3.classList.add("hidden"); 
       buttonLeft3.classList.add("hidden"); 
       buttonRight3.classList.add("hidden"); 
 
@@ -2376,7 +2341,7 @@
     whackGoBack.addEventListener("click", () => {
       whackEndScreen.style.display = "none";
       startWhackCooldown()
-      buttonBack3.classList.remove("hidden"); // show up button again
+      buttonBack3.classList.remove("hidden"); 
       buttonLeft3.classList.remove("hidden"); 
       buttonRight3.classList.remove("hidden"); 
       player.classList.remove("hidden");
@@ -2443,11 +2408,10 @@
     const successSound = document.getElementById("successSound");
     const failSound = document.getElementById("failSound");
 
-    // --- Boot Countdown with Full-Screen Sliding Image --- //
+    // --- Boot Countdown with Instructions  --- //
     function showBootCountdown(callback) {
       const spawnArea = document.getElementById("officeSpawnArea");
 
-      // Full-screen sliding image (independent of overlay)
       const bootImage = document.createElement("img");
       bootImage.src = "Textures/instructions.png"; 
       bootImage.style.cssText = `
@@ -2463,7 +2427,6 @@
       `;
       document.body.appendChild(bootImage);
 
-      // Black overlay (unchanged)
       const rect = spawnArea.getBoundingClientRect();
 
       const bootOverlay = document.createElement("div");
@@ -2484,9 +2447,9 @@
 
       document.body.appendChild(bootOverlay);
 
-      // Slide in the image
+      // Slide in
       setTimeout(() => {
-        bootImage.style.right = "3%"; // visible on screen
+        bootImage.style.right = "3%"; 
       }, 50);
 
       let counter = 10;
@@ -2495,17 +2458,16 @@
         counter--;
         if (counter < 0) {
           clearInterval(interval);
-          // Slide out the image
+          // Slide out 
           bootImage.style.right = "-100%";
           setTimeout(() => {
             bootOverlay.remove();
             bootImage.remove();
             callback();
-          }, 1000); // match transition duration
+          }, 1000); 
         }
       }, 1000);
     
-          // Expose cleanup
           window.stopBootCountdown = function() {
             clearInterval(interval);
             if (bootOverlay && bootOverlay.parentNode) bootOverlay.remove();
@@ -2526,7 +2488,7 @@
       officeScoreEl.textContent = "Score: 0";
       officeTimeEl.textContent = "Time: 60";
 
-      buttonBack4.classList.add("hidden"); // hide up button
+      buttonBack4.classList.add("hidden"); 
       player.classList.add("hidden");
 
       obgMusic.currentTime = 0;
@@ -2567,7 +2529,7 @@
       file.dataset.id = "file-" + fileCounter++;
       file.draggable = true;
 
-      let x, y, absoluteY; // declare here so while() can access
+      let x, y, absoluteY; 
 
       const fileWidth = 60;
       const fileHeight = 60;
@@ -2578,7 +2540,7 @@
       do {
         x = Math.random() * (areaRect.width - fileWidth);
         y = Math.random() * (areaRect.height - fileHeight);
-        absoluteY = y + areaRect.top; // compute absolute Y here
+        absoluteY = y + areaRect.top; 
       } while (absoluteY >= safeZoneY && absoluteY <= safeZoneY + safeZoneHeight);
 
       file.style.left = x + "px";
@@ -2586,7 +2548,7 @@
 
       spawnArea.appendChild(file);
 
-      // --- Drag & Drop --- (same as before)
+      // --- Drag & Drop --- //
       file.addEventListener("dragstart", (e) => {
         e.dataTransfer.setData("text/plain", file.dataset.id);
         const dragIcon = document.createElement("canvas");
@@ -2613,7 +2575,7 @@
         if (!target) return;
         target.addEventListener("dragover", e => {
             e.preventDefault();
-            e.dataTransfer.dropEffect = "move"; // shows proper cursor
+            e.dataTransfer.dropEffect = "move"; 
         });
         target.addEventListener("drop", handleDrop);
     });
@@ -2703,7 +2665,7 @@
 
       // Stop background music
       obgMusic.pause();
-      obgMusic.currentTime = 0; // reset position too if you want
+      obgMusic.currentTime = 0; 
 
       // Stop computer click sound if still playing
       const clickSound = document.getElementById("compClick");
@@ -2776,7 +2738,7 @@
         particle.style.position = "absolute";
         particle.style.left = `${x}px`;
         particle.style.top = `${y}px`;
-        particle.style.width = `${Math.random() * 25 + 20}px`; // 15px–35px
+        particle.style.width = `${Math.random() * 25 + 20}px`; 
         particle.style.pointerEvents = "none";
         particle.style.opacity = "1";
         particle.style.zIndex = 99;
@@ -2784,19 +2746,16 @@
 
         document.body.appendChild(particle);
 
-        // Random direction & distance
-        const angle = Math.random() * Math.PI * 2; // full circle
-        const distance = 40 + Math.random() * 60; // how far particle moves
+        const angle = Math.random() * Math.PI * 2; 
+        const distance = 40 + Math.random() * 60; 
         const offsetX = Math.cos(angle) * distance;
         const offsetY = Math.sin(angle) * distance;
 
-        // Small random delay for more natural burst
         setTimeout(() => {
           particle.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${Math.random() * 0.5 + 0.5})`;
           particle.style.opacity = "0";
         }, Math.random() * 100);
 
-        // Remove after animation
         setTimeout(() => particle.remove(), 800);
       }
     }
@@ -2813,7 +2772,6 @@
       x ${abbreviateNumber(playerTotalApples)}
     `;
 
-    // Rebind events whenever display updates
     const appleIcon = document.getElementById("appleIcon");
 
     appleIcon.addEventListener("mouseenter", () => {
@@ -2831,7 +2789,7 @@
           playButtonClickSound();
           document.getElementById("feedWindow").style.display = "block";
           document.getElementById("applesAvailable").textContent = abbreviateNumber(playerTotalApples);
-          appleInput.value = 1; // also reset on open
+          appleInput.value = 1; 
         });
 }
 
@@ -2862,8 +2820,8 @@
     }
     
     
-    // --- Skeleton Glove dark mode
-            function isDarkMode() {
+      // --- Skeleton Glove dark mode
+      function isDarkMode() {
           return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
         }
             
@@ -2881,7 +2839,7 @@
         function showComboMessage(htmlText, duration = 2000) {
             const container = document.getElementById("combo-message-container");
 
-            // Create a new message element
+
             const message = document.createElement("div");
             message.innerHTML = htmlText;
             message.style.opacity = 1;
@@ -2894,15 +2852,13 @@
             message.style.fontSize = "30px";
             message.style.textAlign = "center";
 
-            // Append it to the container
             container.prepend(message);
 
-            // Fade out and remove after duration
             setTimeout(() => {
               message.style.opacity = 0;
               setTimeout(() => {
                 message.remove();
-              }, 500); // Wait for fade out
+              }, 500); 
             }, duration);
           }
 
@@ -2911,7 +2867,6 @@
 
         function abbreviateNumber(value) {
           if (value === null || value === undefined) return "";
-          // accept numbers or numeric strings with commas
           let num = (typeof value === "number") ? value : parseFloat(String(value).replace(/,/g, ""));
           if (!isFinite(num)) return String(value);
 
@@ -2919,7 +2874,6 @@
           num = Math.abs(num);
 
           if (num < 10000) {
-            // below 10k: show full number (no abbreviation)
             return sign + String(Math.round(num));
           }
 
@@ -2928,27 +2882,25 @@
           const scale = Math.pow(10, tier * 3);
           const scaled = num / scale;
 
-          // formatting rules: no decimals for K (10k-999k) and for large scaled >=100
           let formatted;
           if (tier === 1) {
-            formatted = Math.round(scaled).toString();       // K -> no decimals
+            formatted = Math.round(scaled).toString();       
           } else if (scaled >= 100) {
-            formatted = Math.round(scaled).toString();       // e.g. 532 -> "532"
+            formatted = Math.round(scaled).toString();       
           } else {
-            formatted = scaled.toFixed(1).replace(/\.0$/, ""); // 1 decimal otherwise, drop .0
+            formatted = scaled.toFixed(1).replace(/\.0$/, ""); 
           }
 
           return sign + formatted + SUFFIXES[tier];
         }
                   
-          
-          
+        
           const skyOrb = document.getElementById("skyOrb");
           const bee = document.getElementById("bee");
           const rareBee = document.getElementById("rareBee");
 
-          const orbRadiusX = window.innerWidth + 200; // distance from right to left
-          const orbAmplitude = 100; // height of the curve
+          const orbRadiusX = window.innerWidth + 200; 
+          const orbAmplitude = 100; 
 
           // Orb follows a semi-circular path
           function moveOrb() {
@@ -2961,14 +2913,11 @@
                 const elapsed = timestamp - startTime;
                 const progress = elapsed / duration;
 
-                // Keep flying until progress > 1 (i.e. done)
                 if (progress > 1) {
-                  // Optional: hide or fade out if desired
-                  // Restart from beginning after delay
                   setTimeout(() => {
                     startTime = null;
                     requestAnimationFrame(animateOrb);
-                  }, 500); // small delay to avoid visible pop
+                  }, 500);
                   return;
                 }
 
@@ -2980,7 +2929,6 @@
                 const amplitude = 120;
                 const y = baseY - amplitude * Math.sin(progress * Math.PI);
 
-                // ✅ Use transform for smooth GPU rendering
                 skyOrb.style.transform = `translate(${x}px, ${y}px)`;
 
                 requestAnimationFrame(animateOrb);
@@ -2992,7 +2940,7 @@
             moveOrb();
              
           
-            // --- Bees
+            // --- Bees -- //
           
             function flyBee(isRare = false) {
               const beeElem = document.createElement("img");
@@ -3080,7 +3028,7 @@
         
         
         
-        // --- Bee Randomness
+        // --- Bee Randomness -- //
 
         function randomBeeSpawns() {
             setInterval(() => {
@@ -3140,7 +3088,7 @@
             }
 
           } else {
-            // ✅ STOP red bar fill IMMEDIATELY
+            // STOP red bar fill 
             if (redBarInterval) {
               clearInterval(redBarInterval);
               redBarInterval = null;
@@ -3246,7 +3194,7 @@
           img.style.filter = "";
           img.style.transition = "opacity 0.8s ease";
           img.style.opacity = 1;
-          img.style.transition = ""; // Reset to allow squish again
+          img.style.transition = ""; 
           img.style.transform = "";
 
           setTimeout(() => {
@@ -3286,7 +3234,7 @@
 
             if (fastPunchTimer && !redBarInterval) {
               redBarInterval = setInterval(() => {
-                comboRedValue += 0.025; // fills in 4s (0.025 * 40 = 1)
+                comboRedValue += 0.025; 
                 if (comboRedValue >= 1) {
                   comboRedValue = 1;
                   clearInterval(redBarInterval);
@@ -3329,7 +3277,6 @@
             clearInterval(comboDecayInterval);
             comboDecayInterval = null;
             
-             // Only resolve if red bar isn’t full (or Giraffi will die anyway)
           if (!isDead && comboRedValue < 1) {
 
             resolveCombo();
@@ -3338,7 +3285,7 @@
           updateComboBar();
         }, 40);
 
-        // : Red bar decay starts after short delay if no more punches
+        // Red bar decay starts after short delay if no more punches
         if (redBarDecayTimeout) clearTimeout(redBarDecayTimeout);
         redBarDecayTimeout = setTimeout(() => {
           if (!redBarDecayInterval) {
@@ -3352,14 +3299,15 @@
               updateComboBar();
             }, 100);
           }
-        }, 400); // delay before red bar decay starts
+        }, 400);
         
     
-            // 🔁 Cancel previous stop timeout
+        // Cancel previous stop timeout
         if (clickStopTimeout) clearTimeout(clickStopTimeout);
 
-        // 🕒 Start new stop detection
+        // Start new stop detection
         clickStopTimeout = setTimeout(() => {
+          
           // Stop red bar fill if it’s still running
           if (redBarInterval) {
             clearInterval(redBarInterval);
@@ -3384,7 +3332,7 @@
       
       // --- Wambo Glove --- //
 
-        if (gloves[currentGloveIndex].id === 10) { // Wambo glove
+        if (gloves[currentGloveIndex].id === 10) { 
           if (wamboScale < maxWamboScale) {
             wamboScale += wamboGrowStep;
             if (wamboScale > maxWamboScale) wamboScale = maxWamboScale;
@@ -3411,8 +3359,8 @@
     }); 
     
     resetButton.addEventListener("click", () => {
-          img.classList.remove("squished");
-          void img.offsetWidth;
+      img.classList.remove("squished");
+      void img.offsetWidth;
       totalPoints = 0;
       punches = 0;
       punchTimes = [];
@@ -3425,22 +3373,22 @@
       img.classList.remove("dead");
       img.style.transform = "rotateZ(0deg) translateY(0)";
       img.style.filter = "";
-      img.style.transition = ""; // Reset to allow squish again
+      img.style.transition = ""; 
       img.style.transform = "";
       handleWamboScale(gloves[currentGloveIndex]);
         
           
           // Reset game buttons
           appleGameButton.disabled = false;
-          appleGameButton.src = "Textures/appleButton.png"; // replace with your normal image
+          appleGameButton.src = "Textures/appleButton.png"; 
           whackGameButton.disabled = false;
-          whackGameButton.src = "Textures/whackButton.png"; // replace with your normal image
+          whackGameButton.src = "Textures/whackButton.png"; 
           
           // Reset cooldown flags
           whackCooldownActive = false;
           appleCooldownActive = false;
       
-      // --- reset Combo Bar
+          // --- reset Combo Bar
           omboRedValue = 0;
           comboBlackValue = 0;
           updateComboBar();
@@ -3453,11 +3401,11 @@
         
         
           // Reset gloves state:
-          ownedGloveIds = new Set([1]);  // Only fist glove owned
+          ownedGloveIds = new Set([1]);  // Only fist owned
           currentGloveIndex = 0;          // Reset to fist glove index
           punchesPerClick = gloves[currentGloveIndex].punchesPerClick;
 
-          // Update player image to fist glove
+          // Update player image to fist 
           player.src = gloves[currentGloveIndex].img;
       
       
@@ -3470,10 +3418,8 @@
     const darkModeToggle = document.getElementById("darkModeToggle");
     const darkModeIcon = document.getElementById("darkModeIcon");
 
-    // Initialize based on current body class
     let darkMode = document.body.classList.contains("dark-mode");
 
-    // Hover sound
     darkModeToggle.addEventListener("mouseenter", () => {
       playButtonHoverSound();
     });
@@ -3503,7 +3449,7 @@
     const closeShopBtn = shop.querySelector(".closeShop");
     const shopItemsContainer = document.getElementById("shopItems");
 
-    // Hover sound
+
     shopButton.addEventListener("mouseenter", () => {
       playButtonHoverSound();
     });
@@ -3570,11 +3516,11 @@
     // --- Glove image ---
     const gloveImg = document.createElement("img");
     gloveImg.src = glove.img;
-    gloveImg.style.width = "40px";   // Or whatever fixed size you want
-    gloveImg.style.height = "40px";  // Keep square or adjust as needed
+    gloveImg.style.width = "40px";   
+    gloveImg.style.height = "40px";  
     gloveImg.style.marginRight = "10px";
     gloveImg.style.borderRadius = "8px";
-    gloveImg.style.objectFit = "contain"; // Prevent distortion
+    gloveImg.style.objectFit = "contain"; 
     
     // --- resizing image for "The Cursor"
     if (glove.img === "Textures/glove3.gif") {
@@ -3603,11 +3549,11 @@
       infoElem.textContent = `x${glove.punchesPerClick} Punches/Click`;
       infoElem.style.fontSize = "0.85em";
       infoElem.style.marginTop = "2px";
-      infoElem.style.color = "gray";  // Optional: adds some visual hierarchy
-      desc.style.height = "50px"; // adjust to fit your content nicely
+      infoElem.style.color = "gray";  
+      desc.style.height = "50px"; 
       desc.style.display = "flex";
       desc.style.flexDirection = "column";
-      desc.style.justifyContent = "center"; // vertically center text   
+      desc.style.justifyContent = "center"; 
 
       desc.appendChild(nameElem);
       desc.appendChild(infoElem);;
@@ -3633,12 +3579,12 @@
 
         // Special Gloves Punch Per Click Update
           if (glove.special === "bee" || glove.special === "combo") {
-            punchesPerClick = getBestPunchValue(); // Use best glove value for special gloves
+            punchesPerClick = getBestPunchValue(); 
           } else {
             punchesPerClick = glove.punchesPerClick;
           }
         
-        updatePlayerImage(glove); // ✅ This now handles both image and size cleanly
+        updatePlayerImage(glove); 
         playEquipGloveAnimation(glove);
 
         updateShopItems();
@@ -3724,7 +3670,7 @@
            // --- Info button for special gloves ---
           const infoBtn = document.createElement("button");
           infoBtn.textContent = "i";
-          infoBtn.style.backgroundColor = "#2196F3"; // blue
+          infoBtn.style.backgroundColor = "#2196F3"; 
           infoBtn.style.color = "white";
           infoBtn.style.border = "none";
           infoBtn.style.borderRadius = "50%";
@@ -3745,7 +3691,6 @@
             playButtonClickSound()
           };
 
-          // Put the info button next to the name
           const nameWrapper = document.createElement("div");
           nameWrapper.style.display = "flex";
           nameWrapper.style.alignItems = "center";
@@ -3828,7 +3773,7 @@
     // Hide cursor on buttons outside the modal
     document.querySelectorAll("button").forEach(button => {
       button.addEventListener("mouseenter", () => {
-        // Only hide cursor if info modal is NOT visible
+        // Only hide cursor if info modal is not visible
         if (document.getElementById("infoModal").style.display !== "flex") {
           player.classList.add("hide-cursor-player");
         }
@@ -3843,12 +3788,6 @@
     infoModal.addEventListener("mouseenter", () => {
       player.classList.remove("hide-cursor-player");
     });
-
-    // Optionally, when leaving the modal, the cursor may hide again if over buttons outside
-    infoModal.addEventListener("mouseleave", () => {
-      // Could leave empty or add logic if needed
-    });
-
     updateDisplay();
   </script>
 </body>
