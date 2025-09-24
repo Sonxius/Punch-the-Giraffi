@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Punch the Giraffi</title>
+    <link rel="icon" href="Textures/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <img id="player" src="Textures/player2.png" alt="Player" />
+
+    <!-- Game container -->
+    <div id="appleGame">
+      <div id="score">Score: 0</div>
+      <div id="timeLeft">Time: 60</div>
+      <img id="catcher" src="Textures/catcher.png" alt="Catcher" />
+
+      <!-- End Screen -->
+      <div id="endScreen">
+        <div id="finalScore"></div>
+        <div id="totalApples"></div>
+        <button id="goBackBtn">Go Back</button>
+      </div>
+    </div>
+
+    <div id="appleCount" class="applestats">🍎x 0</div>
+
+    <div
+      id="feedEffectTimer"
+      style="
+        position: fixed;
+        bottom: 20px;
+        left: 80%;
+        transform: translateX(-50%);
+        background: #ffe680;
+        color: black;
+        border: 2px solid #333;
+        padding: 8px 16px;
+        border-radius: 10px;
+        display: none;
+        font-weight: bold;
+        z-index: 500;
+      "
+    >
+      🍎 Combo Boost Active! Time left: <span id="feedTimeLeft">0</span>s
+    </div>
+
+    <!-- Main Page -->
+    <div id="page1" class="page">
+      <h1>
+        <img
+          src="Textures/title.png"
+          draggable="false"
+          alt="Punch the Giraffi"
+          id="headlineImg"
+        />
+      </h1>
+      <div id="clickCount" class="stats">Points: 0</div>
+      <div id="punchCount" class="stats">Punches: 0</div>
+      <div id="bottomLeftText">
+        ⚠ Giraffi will die if punched too fast ⚠<br />
+        🐝 Catch Bees to gain extra points!<br />
+        ♫ Music by
+        <a href="https://www.youtube.com/@Pixverses" target="_blank">Pix</a> ♫
+      </div>
+
+      <!-- 🍎 Feeding Window -->
+      <div id="feedWindow">
+        <h2>🍎 Feed Giraffi</h2>
+        <p>
+          Feeding Giraffi apples gets you a boost! While active, the combo
+          multiplier grows every <b>7 clicks</b> instead of 10. Each apple lasts
+          <b>5 seconds</b>.
+        </p>
+
+        <div style="margin: 10px 0">
+          <button id="minusApple">-</button>
+          <input
+            type="number"
+            id="appleInput"
+            value="1"
+            min="1"
+            style="width: 60px; text-align: center"
+          />
+          <button id="plusApple">+</button>
+        </div>
+
+        <p>Apples available: <span id="applesAvailable"></span></p>
+        <button id="feedBtn">Feed</button>
+        <br /><br />
+        <button onclick="closeFeedWindow()">Close</button>
+      </div>
+
+      <!--Room Buttons -->
+      <button id="button-next" class="button">
+        <img
+          src="Textures/right.png"
+          draggable="false"
+          alt="garden"
+          class="light-img"
+        />
+        <img
+          src="Textures/right-dark.png"
+          draggable="false"
+          alt="garden"
+          class="dark-img"
+        />
+      </button>
+      <button id="button-next2" class="button">
+        <img
+          src="Textures/down.png"
+          draggable="false"
+          alt="cellar"
+          class="light-img"
+        />
+        <img
+          src="Textures/down-dark.png"
+          draggable="false"
+          alt="cellar"
+          class="dark-img"
+        />
+      </button>
+
+      <button id="shopButton">
+        <img
+          src="Textures/shop.png"
+          draggable="false"
+          alt="Shop"
+          class="light-img"
+        />
+        <img
+          src="Textures/shop-dark.png"
+          draggable="false"
+          alt="Shop"
+          class="dark-img"
+        />
+      </button>
+
+      <div class="giraffi-wrapper">
+        <img
+          src="Textures/giraffi.png"
+          alt="giraffi"
+          id="squishy"
+          draggable="false"
+        />
+      </div>
+
+      <div id="comboBarContainer">
+        <div class="comboBarWrapper">
+          <div id="comboBarRed"></div>
+          <div id="comboBarBlack"></div>
+        </div>
+      </div>
+
+      <div
+        id="combo-message-container"
+        style="
+          pointer-events: none;
+          position: fixed;
+          bottom: 60px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 9999;
+          display: flex;
+          flex-direction: column-reverse;
+          align-items: center;
+        "
+      ></div>
+      <div id="comboMessage"></div>
+      <div id="comboMultiplierPopup">x1.0</div>
+
+      <div id="shop">
+        <button class="closeShop">Close</button>
+        <h2>Shop - Buy Gloves</h2>
+        <div id="shopItems"></div>
+      </div>
+
+      <!-- Buy Glove Animation -->
+      <div id="buyGloveAnimation" style="z-index: 99999">
+        <img id="buyGloveImg" src="" alt="Bought Glove" />
+        <div id="buyGloveMessage"></div>
+      </div>
+
+      <!-- Buy/Equip Glove Sound -->
+      <audio
+        id="buyGloveSound"
+        src="Sounds/buy_sound.mp3"
+        preload="auto"
+      ></audio>
+      <audio
+        id="equipGloveSound"
+        src="Sounds/equip_sound.mp3"
+        preload="auto"
+      ></audio>
+
+      <!-- Punch Sound -->
+      <audio id="PunchSound" src="Sounds/punch.mp3" preload="auto"></audio>
+
+      <!-- Bee Catch Sound -->
+      <audio id="BeeCatch" src="Sounds/catch.mp3" preload="auto"></audio>
+
+      <!-- Giraffi Death Sound -->
+      <audio
+        id="giraffiDeath"
+        src="Sounds/giffidies.mp3"
+        preload="auto"
+      ></audio>
+
+      <!-- Button Hover Sound -->
+      <audio
+        id="buttonHover"
+        src="Sounds/hover_sound.mp3"
+        preload="auto"
+      ></audio>
+      <!-- Button Click Sound -->
+      <audio
+        id="buttonClick"
+        src="Sounds/click_sound.mp3"
+        preload="auto"
+      ></audio>
+
+      <!-- FlashlightButton Click Sound -->
+      <audio
+        id="flashClick"
+        src="Sounds/flashlightbuttonsound.mp3"
+        preload="auto"
+      ></audio>
+
+      <!-- Computer Click Sound -->
+      <audio id="compClick" src="Sounds/compClick.mp3" preload="auto"></audio>
+
+      <!-- File Sounds -->
+      <audio id="successSound" src="Sounds/success.mp3"></audio>
+      <audio id="failSound" src="Sounds/fail.mp3"></audio>
+
+      <!-- Combo Resolve Sound -->
+      <audio id="resolveSound" src="Sounds/resolve.mp3" preload="auto"></audio>
+
+      <!-- Special Glove Info -->
+      <div id="infoModal">
+        <div class="infoModalContent">
+          <button id="closeInfoModal">✖</button>
+          <h2 id="infoTitle"></h2>
+          <p id="infoDescription"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Garden -->
+    <div id="page2" class="page">
+      <button id="button-back" class="button">
+        <img
+          src="Textures/left.png"
+          draggable="false"
+          alt="go back"
+          class="light-img"
+        />
+        <img
+          src="Textures/left-dark.png"
+          draggable="false"
+          alt="go back"
+          class="dark-img"
+        />
+      </button>
+      <button id="appleGameButton">
+        <img src="Textures/basket.png" draggable="false" alt="Apple Game" />
+      </button>
+      <img
+        src="Textures/tree.png"
+        draggable="false"
+        alt="Tree"
+        id="appletree"
+        class="light-img"
+      />
+      <img
+        src="Textures/tree-dark.png"
+        draggable="false"
+        alt="Tree"
+        id="appletree-dark"
+        class="dark-img"
+      />
+      <div id="applespawn"></div>
+    </div>
+
+    <!-- Cellar -->
+    <div id="page3" class="page">
+      <button id="button-back3" class="button">
+        <img
+          src="Textures/up.png"
+          draggable="false"
+          alt="go back"
+          class="light-img"
+        />
+        <img
+          src="Textures/up-dark.png"
+          draggable="false"
+          alt="go back"
+          class="dark-img"
+        />
+      </button>
+
+      <!-- Left → Office -->
+      <button id="button-left3" class="button">
+        <img
+          src="Textures/left.png"
+          draggable="false"
+          alt="office"
+          class="light-img"
+        />
+        <img
+          src="Textures/left-dark.png"
+          draggable="false"
+          alt="office"
+          class="dark-img"
+        />
+      </button>
+
+      <!-- Right → Elevator -->
+      <button id="button-right3" class="button">
+        <img
+          src="Textures/right.png"
+          draggable="false"
+          alt="elevator"
+          class="light-img"
+        />
+        <img
+          src="Textures/right-dark.png"
+          draggable="false"
+          alt="elevator"
+          class="dark-img"
+        />
+      </button>
+
+      <!-- Start Game Button (flashlight) -->
+      <button id="whackGameButton" class="flashlight-btn">
+        <img src="Textures/flashlight.png" alt="Start Game" draggable="false" />
+      </button>
+
+      <!-- Game Container -->
+      <div id="whackGame" class="game">
+        <div class="hud">
+          <div id="whackScore">Score: 0</div>
+          <div id="whackTime">Time: 60</div>
+          <button id="quitBtn" class="quit">Quit</button>
+        </div>
+      </div>
+
+      <!-- End Screen -->
+      <div id="whackEndScreen" class="end-screen">
+        <h2 id="whackFinalScore"></h2>
+        <p id="whackApples"></p>
+        <button id="whackGoBack" class="goback-button">Go Back</button>
+      </div>
+    </div>
+
+    <!-- Office Room (page4) -->
+    <div id="page4" class="page">
+      <!-- Back to Cellar -->
+      <button id="button-back4" class="button">
+        <img
+          src="Textures/right.png"
+          draggable="false"
+          alt="back"
+          class="light-img"
+        />
+        <img
+          src="Textures/right-dark.png"
+          draggable="false"
+          alt="back"
+          class="dark-img"
+        />
+      </button>
+
+      <!-- Start Office Game Button -->
+      <button id="officeGameButton">
+        <img src="Textures/computer.png" draggable="false" alt="Office Game" />
+      </button>
+
+      <!-- Office Game Overlay -->
+      <div id="officeGame" class="game">
+        <div class="hud">
+          <div id="officeScore">Score: 0</div>
+          <div id="officeTime">Time: 60</div>
+          <button id="officeQuitBtn" class="quit">Quit</button>
+        </div>
+
+        <!-- Invisible spawn area -->
+        <div id="officeSpawnArea">
+          <!-- Upload Target -->
+          <img
+            id="cloudUpload"
+            src="Textures/cloudUpload.png"
+            alt="Cloud Upload"
+            draggable="false"
+          />
+
+          <!-- Trash Bin Target -->
+          <img
+            id="trashBin"
+            src="Textures/trashBin.png"
+            alt="Trash Bin"
+            draggable="false"
+          />
+        </div>
+      </div>
+
+      <!-- End Screen -->
+      <div id="officeEndScreen" class="end-screen">
+        <h2 id="officeFinalScore">Score: 0</h2>
+        <p id="officeApples">Apples gained: 0</p>
+        <p id="officeTotalApples">Total Apples: 0</p>
+        <button id="officeGoBack" class="goback-button">Go Back</button>
+      </div>
+    </div>
+
+    <!-- Elevator Room (page5) -->
+    <div id="page5" class="page">
+      <button id="button-back5" class="button">
+        <img
+          src="Textures/left.png"
+          draggable="false"
+          alt="back"
+          class="light-img"
+        />
+        <img
+          src="Textures/left-dark.png"
+          draggable="false"
+          alt="back"
+          class="dark-img"
+        />
+      </button>
+    </div>
+
+    <!-- Sun / Moon  -->
+    <img
+      id="skyOrb"
+      class="hover-target"
+      src="Textures/sun1.png"
+      alt="Sky Orb"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100px;
+        z-index: 0;
+        pointer-events: none;
+      "
+    />
+
+    <div id="bottomButtons">
+      <button id="resetButton">
+        <img
+          src="Textures/reset.png"
+          draggable="false"
+          alt="Reset"
+          class="light-img"
+        />
+        <img
+          src="Textures/reset-dark.png"
+          draggable="false"
+          alt="Reset"
+          class="dark-img"
+        />
+      </button>
+      <button id="darkModeToggle">
+        <img
+          id="darkModeIcon"
+          src="Textures/moon.png"
+          draggable="false"
+          alt="⏾"
+          class="light-img"
+        />
+        <img
+          id="darkModeIcon"
+          src="Textures/sun-dark.png"
+          draggable="false"
+          alt="☀︎"
+          class="dark-img"
+        />
+      </button>
+    </div>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js"></script>
+  </body>
+</html>
