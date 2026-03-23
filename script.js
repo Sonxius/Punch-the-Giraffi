@@ -4164,7 +4164,7 @@ function updateShopItems() {
       "Combo Glove":
         "💥 Giraffi can't die while this glove is equipped. Punches/Click matches with the best glove owned.",
       "Eternity":
-        "💫 It might not be the most powerful, but it will stay with you when you reset.",
+        "💫 It might not be the most powerful, but it will stay with you when you rebirth.",
     };
 
     infoBtn.onclick = () => {
